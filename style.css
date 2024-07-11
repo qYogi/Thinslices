@@ -42,6 +42,7 @@ body{
 }
 
 #O{
+    cursor: pointer;
     padding: 0;
     height: 54px;
     width: 198px;
@@ -50,10 +51,9 @@ body{
     background-color: #A8BFC9;
     border: none;
 }
-#O svg{
-    opacity: 0.31;
-}
+
 #X{
+    cursor: pointer;
     padding: 0;
     height: 54px;
     width: 198px;
@@ -113,6 +113,9 @@ h5{
     width: 71.97px;
     height: 32px;
 }
+
+
+/* JS TO ADD */
 
 
 

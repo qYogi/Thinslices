@@ -26,3 +26,5 @@ newGame.addEventListener('click', () => {
 newGame2.addEventListener('click', () => {
     menu.style.display = 'none';
 })
+
+//added a comment just to try

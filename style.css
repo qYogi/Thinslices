@@ -1,3 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+:root{
+    --lightB: #31c3bd;
+}
+
 body{
     background-color: #1A2A33;
     display: flex;
@@ -113,6 +124,144 @@ h5{
     width: 71.97px;
     height: 32px;
 }
+
+/*-------GAME CONTAINER--------*/
+.gameContainer{
+    display: none;
+    flex-direction: column;
+    width: 28.75rem;
+    height: 38.938rem
+}
+
+#header{
+    width: 28.75rem;
+    height: 3.25rem;
+    /*display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: flex-start;*/
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5rem;
+}
+
+#logo{
+    width: 4.498rem;
+    height: 2rem;
+    align-self: center;
+}
+
+#header button{
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 0.625rem;
+    border: none;
+    justify-self: end;
+}
+
+#playerTurn{
+    width: 8.75rem;
+    height: 3.25rem;
+    background-color: #1F3641;
+    border-bottom: 0.25rem solid #10212A;
+    border-radius: 0.625rem;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    font-family: 'Outfit', sans-serif;
+}
+
+#playerTurn h6{
+    font-size: 1.25rem;
+    color: #A8BFC9;
+    padding-left: 0.5rem;
+}
+
+#gameBoard{
+    margin-top: 1.118rem;
+    margin-bottom: 1.118rem;
+    width: 28.75rem;
+    height: 28.813rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 1.25rem;
+}
+
+
+#gameBoard button{
+    height: 8.75rem;
+    width: 8.75rem;
+    border-radius: 0.93rem;
+    cursor: pointer;
+    border: none;
+    background-color: #1F3641;
+    border-bottom: solid 8px #10212A;
+}
+
+#restart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#tableScore{
+    width: 28.68rem;
+    height: 4.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.25rem
+}
+
+#tableScore .score{
+    border-radius: 0.938rem;
+    width: 8.75rem;
+    height: 4.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+#tableScore h6{
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.8rem;
+    color: #10212A;
+    width: 56px;
+    height: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+#tableScore h5{
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.8rem;
+    color: #10212A;
+    width: 26px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+
+#tableScore #scoreBox1{
+    background-color: #31c3bd;
+}
+#tableScore #scoreBox2{
+    background-color: #A8BFC9;
+}
+#tableScore #scoreBox3{
+    background-color: #F2B137;
+}
+
+
 
 
 /* JS TO ADD */

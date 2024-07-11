@@ -5,6 +5,8 @@ const menu = document.querySelector('.menu')
 const newGame = document.getElementById('CPU');
 const newGame2 = document.getElementById('Player');
 
+const gameContainer = document.querySelector('.gameContainer');
+
 let currentPlayer = null;
 
 xButton.addEventListener('click', () => {
@@ -22,10 +24,13 @@ oButton.addEventListener('click', () => {
 
 newGame.addEventListener('click', () => {
     menu.style.display = 'none';
+    gameContainer.style.display = 'flex';
 })
 newGame2.addEventListener('click', () => {
     menu.style.display = 'none';
+    gameContainer.style.display = 'flex';
 })
 
 //added a comment just to try
 //from webstorm
+

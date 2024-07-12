@@ -113,7 +113,6 @@ buttons.forEach((button) => {
         }
         updateScores(xScore, drawScore, oScore);
 
-
         currentPlayer = currentPlayer === 1 ? 2 : 1;
 
 

@@ -204,6 +204,7 @@ h5{
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 #tableScore{
@@ -224,6 +225,7 @@ h5{
     align-content: center;
     align-items: center;
 }
+
 
 #tableScore h6{
     font-family: 'Outfit', sans-serif;
@@ -258,6 +260,16 @@ h5{
     background-color: #A8BFC9;
 }
 #tableScore #scoreBox3{
+    background-color: #F2B137;
+}
+
+
+#gameBoard .winning-pattern{
+    background-color: #31c3bd;
+
+}
+
+#gameBoard .winning-pattern2{
     background-color: #F2B137;
 }
 

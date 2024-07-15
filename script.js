@@ -7,10 +7,12 @@ const newGame2 = document.getElementById('Player');
 
 const gameContainer = document.querySelector('.gameContainer');
 let currentPlayer = 1;
-const oSVG =`<svg class="o" width="64" height="64" xmlns="http://www.w3.org/2000/svg"><path d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z" fill="#F2B137"/></svg>`
-const xSVG =`<svg class="x" width="64" height="64" xmlns="http://www.w3.org/2000/svg"><path d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z" fill="#31C3BD" fill-rule="evenodd"/></svg>`
+const oSVG = `<svg class="o" width="64" height="64" xmlns="http://www.w3.org/2000/svg"><path d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z" fill="#F2B137"/></svg>`
+const xSVG = `<svg class="x" width="64" height="64" xmlns="http://www.w3.org/2000/svg"><path d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z" fill="#31C3BD" fill-rule="evenodd"/></svg>`
 
 const restartButton = document.getElementById('restart');
+const nextRoundButton = document.getElementById('next-round');
+const quitButton = document.getElementById('quit-btn');
 
 xButton.addEventListener('click', () => {
     currentPlayer = 1;
@@ -28,19 +30,21 @@ oButton.addEventListener('click', () => {
 newGame.addEventListener('click', () => {
     menu.style.display = 'none';
     gameContainer.style.display = 'flex';
+
+
 })
 newGame2.addEventListener('click', () => {
     menu.style.display = 'none';
     gameContainer.style.display = 'flex';
+
 })
 
 let WIN;
 
-function checkWinner (board){
-    const winPatterns = [
-        [0,1,2], [3,4,5], [6,7,8], //linii
-        [0,3,6], [1,4,7], [2,5,8], //coloane
-        [0,4,8], [2,4,6]           //diagonale
+function checkWinner(board) {
+    const winPatterns = [[0, 1, 2], [3, 4, 5], [6, 7, 8], //linii
+        [0, 3, 6], [1, 4, 7], [2, 5, 8], //coloane
+        [0, 4, 8], [2, 4, 6]           //diagonale
     ]
 
     for (const pattern of winPatterns) {
@@ -69,11 +73,15 @@ document.getElementById('scoreBox1').querySelector('h5').textContent = xScore;
 document.getElementById('scoreBox2').querySelector('h5').textContent = drawScore;
 document.getElementById('scoreBox3').querySelector('h5').textContent = oScore;
 
-function updateScores(xScore, drawScore, oScore){
+function updateScores(xScore, drawScore, oScore) {
     document.getElementById('scoreBox1').querySelector('h5').textContent = xScore;
     document.getElementById('scoreBox2').querySelector('h5').textContent = drawScore;
     document.getElementById('scoreBox3').querySelector('h5').textContent = oScore;
 }
+
+const winnerText = document.querySelector('#modal-content p');
+const svgContainer = document.querySelector('.winner-container svg');
+const winnerTextH2 = document.querySelector('#modal-content h2');
 
 const buttons = document.querySelectorAll("#gameBoard button");
 buttons.forEach((button) => {
@@ -81,6 +89,11 @@ buttons.forEach((button) => {
         if (gameOver) return; // Do nothing if the game is over
 
         if (gameOver || button.innerHTML !== "") return;
+
+        if(!gameOver){
+            restartButton.disabled = false;
+        }
+
 
         const buttonId = button.id;
         const row = parseInt(buttonId[0]) - 1; //selectam randul ( ex pt 1_1 o sa fie linia 0 )
@@ -93,23 +106,39 @@ buttons.forEach((button) => {
         const winner = checkWinner(board);
         if (winner) {
             gameOver = true;
-
-            if(WIN ===1){
+            restartButton.disabled = true;
+            if (WIN === 1) {
                 winner.forEach(i => {
                     buttons[i].classList.add('winning-pattern');
                     buttons[i].querySelector('svg path').setAttribute('fill', '#1F3641')
                 });
                 xScore++
-            }else if(WIN ===2){
+
+                modalID.style.display = 'flex';
+
+            } else if (WIN === 2) {
                 winner.forEach(i => {
                     buttons[i].classList.add('winning-pattern2');
                     buttons[i].querySelector('svg path').setAttribute('fill', '#1F3641')
                 });
                 oScore++
+
+
+                modalID.style.display = 'flex';
+
+                winnerTextH2.style.color = '#F2B137'
+                winnerText.textContent = 'Player O WINS!';
+                svgContainer.outerHTML = newSvg;
+
             }
         } else if (board.every(cell => cell !== 0)) {
             gameOver = true;
             drawScore++;
+            modalID.style.display = 'flex';
+            winnerTextH2.textContent = 'NO ONE WINS POINTS'
+            winnerText.textContent = 'Ha, losers';
+            winnerTextH2.style.color = '#A8BFC9';
+            svgContainer.outerHTML = '';
         }
         updateScores(xScore, drawScore, oScore);
 
@@ -119,8 +148,19 @@ buttons.forEach((button) => {
     });
 });
 
-function nextGame(){
-    buttons.forEach(button =>{
+function nextGame() {
+    buttons.forEach(button => {
+        button.innerHTML = '';
+        button.classList.remove('winning-pattern');
+        button.classList.remove('winning-pattern2');
+        board = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+        gameOver = false;
+        currentPlayer = 1;
+    });
+}
+
+function quitGame(){
+    buttons.forEach(button => {
         button.innerHTML = '';
         button.classList.remove('winning-pattern');
         button.classList.remove('winning-pattern2');
@@ -132,8 +172,33 @@ function nextGame(){
 
 restartButton.addEventListener('click', () => {
     nextGame()
+});
+
+const showDialogBtn = document.getElementById('openDial');
+const modalID = document.getElementById('modal');
+
+
+quitButton.addEventListener('click', () => {
+    menu.style.display = 'flex';
+    gameContainer.style.display = 'none';
+
+})
+nextRoundButton.addEventListener('click', () =>{
+    modalID.style.display = 'none';
+    nextGame()
 })
 
+quitButton.addEventListener('click', () =>{
+    quitGame();
+    modalID.style.display = 'none';
+    xScore = 0;
+    oScore = 0;
+    drawScore = 0;
+    updateScores();
+});
+
+//un svg facut in graba ((=
+const newSvg = '<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg"><path d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z" fill="#F2B137"/></svg>'
 
 
 

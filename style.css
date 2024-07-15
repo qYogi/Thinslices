@@ -10,7 +10,6 @@
 }
 
 
-
 body {
     margin: 0;
     background-color: #1A2A33;
@@ -282,12 +281,11 @@ h5 {
 }
 
 
-
-dialog::backdrop{
-    background: rgba(0,0,0,0.6);
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.6);
 }
 
-dialog{
+dialog {
     display: none;
     left: 50%;
     top: 50%;
@@ -303,7 +301,7 @@ dialog{
     background-color: #1F3641;
 }
 
-#modal-content{
+#modal-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -312,7 +310,7 @@ dialog{
     height: 11rem;
 }
 
-.winner-container{
+.winner-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -321,7 +319,7 @@ dialog{
     margin-bottom: 24px;
 }
 
-#modal-content h2{
+#modal-content h2 {
     font-family: 'Outfit', sans-serif;
     width: 25.063rem;
     height: 3.125rem;
@@ -331,12 +329,12 @@ dialog{
     color: #31c3bd;
 }
 
-#modal-content p{
+#modal-content p {
     font-family: 'Outfit', sans-serif;
     color: #A8BFC9;
 }
 
-#dial-btns{
+#dial-btns {
     width: 14.875rem;
     height: 3.25rem;
     display: flex;
@@ -356,7 +354,7 @@ dialog{
     cursor: pointer;
 }
 
-#next-round{
+#next-round {
     font-family: 'Outfit', sans-serif;
     background-color: #F2B137;
     border: none;

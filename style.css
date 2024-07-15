@@ -1,24 +1,28 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
+    overflow: hidden;
 }
 
-:root{
+:root {
     --lightB: #31c3bd;
 }
 
-body{
+
+
+body {
+    margin: 0;
     background-color: #1A2A33;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     font-family: 'Outfit', sans-serif;
+    overflow: hidden;
 }
 
-.menu{
+.menu {
     height: 471px;
     width: 460px;
     display: flex;
@@ -27,7 +31,7 @@ body{
     align-items: center;
 }
 
-.player-mark{
+.player-mark {
     margin: 0;
     height: 205px;
     width: 460px;
@@ -42,7 +46,7 @@ body{
     border-bottom: #10212A solid 8px;
 }
 
-.player-mark-btn{
+.player-mark-btn {
     background-color: #1A2A33;
     height: 72px;
     width: 412px;
@@ -52,7 +56,7 @@ body{
     align-items: center;
 }
 
-#O{
+#O {
     cursor: pointer;
     padding: 0;
     height: 54px;
@@ -63,7 +67,7 @@ body{
     border: none;
 }
 
-#X{
+#X {
     cursor: pointer;
     padding: 0;
     height: 54px;
@@ -74,19 +78,19 @@ body{
     border: none;
 }
 
-h3, h5{
-   color: #A8BFC9;
+h3, h5 {
+    color: #A8BFC9;
     font-family: 'Outfit', sans-serif;
 }
 
-h3{
+h3 {
     font-size: 20px;
     padding-bottom: 20px;
     margin: 0;
     letter-spacing: 1.25px;
 }
 
-h5{
+h5 {
     font-size: 16px;
     padding-bottom: 0;
     padding-top: 17px;
@@ -94,7 +98,7 @@ h5{
     letter-spacing: 1px;
 }
 
-#CPU, #Player{
+#CPU, #Player {
     font: inherit;
     font-size: 24px;
     border: none;
@@ -107,33 +111,33 @@ h5{
     letter-spacing: 1.5px;
 }
 
-#CPU{
+#CPU {
     background-color: #F2B137;
     border-bottom: #CC8B13 solid 8px;
 }
 
-#Player{
+#Player {
     background-color: #31c3bd;
     margin-top: 20px;
     border-bottom: #118c87 solid 8px;
 }
 
 
-.XnO{
+.XnO {
     display: flex;
     width: 71.97px;
     height: 32px;
 }
 
 /*-------GAME CONTAINER--------*/
-.gameContainer{
+.gameContainer {
     display: none;
     flex-direction: column;
     width: 28.75rem;
     height: 38.938rem
 }
 
-#header{
+#header {
     width: 28.75rem;
     height: 3.25rem;
     /*display: flex;
@@ -145,13 +149,13 @@ h5{
     gap: 5rem;
 }
 
-#logo{
+#logo {
     width: 4.498rem;
     height: 2rem;
     align-self: center;
 }
 
-#header button{
+#header button {
     width: 3.25rem;
     height: 3.25rem;
     border-radius: 0.625rem;
@@ -159,7 +163,7 @@ h5{
     justify-self: end;
 }
 
-#playerTurn{
+#playerTurn {
     width: 8.75rem;
     height: 3.25rem;
     background-color: #1F3641;
@@ -172,13 +176,13 @@ h5{
     font-family: 'Outfit', sans-serif;
 }
 
-#playerTurn h6{
+#playerTurn h6 {
     font-size: 1.25rem;
     color: #A8BFC9;
     padding-left: 0.5rem;
 }
 
-#gameBoard{
+#gameBoard {
     margin-top: 1.118rem;
     margin-bottom: 1.118rem;
     width: 28.75rem;
@@ -190,7 +194,7 @@ h5{
 }
 
 
-#gameBoard button{
+#gameBoard button {
     height: 8.75rem;
     width: 8.75rem;
     border-radius: 0.93rem;
@@ -200,22 +204,22 @@ h5{
     border-bottom: solid 8px #10212A;
 }
 
-#restart{
+#restart {
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
 }
 
-#tableScore{
+#tableScore {
     width: 28.68rem;
     height: 4.5rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 1.25rem
+    gap: 1rem
 }
 
-#tableScore .score{
+#tableScore .score {
     border-radius: 0.938rem;
     width: 8.75rem;
     height: 4.5rem;
@@ -227,7 +231,7 @@ h5{
 }
 
 
-#tableScore h6{
+#tableScore h6 {
     font-family: 'Outfit', sans-serif;
     font-size: 0.8rem;
     color: #10212A;
@@ -239,42 +243,154 @@ h5{
     align-content: center;
     align-items: center;
 }
-#tableScore h5{
+
+#tableScore h5 {
     font-family: 'Outfit', sans-serif;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: #10212A;
     width: 26px;
-    height: 30px;
+    height: 1.8rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
     align-items: center;
+    padding-top: 5px;
 }
 
 
-#tableScore #scoreBox1{
+#tableScore #scoreBox1 {
     background-color: #31c3bd;
 }
-#tableScore #scoreBox2{
+
+#tableScore #scoreBox2 {
     background-color: #A8BFC9;
 }
-#tableScore #scoreBox3{
+
+#tableScore #scoreBox3 {
     background-color: #F2B137;
 }
 
 
-#gameBoard .winning-pattern{
+#gameBoard .winning-pattern {
     background-color: #31c3bd;
 
 }
 
-#gameBoard .winning-pattern2{
+#gameBoard .winning-pattern2 {
     background-color: #F2B137;
 }
 
 
 
+dialog::backdrop{
+    background: rgba(0,0,0,0.6);
+}
+
+dialog{
+    display: none;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
+    /*display: inline-block;*/
+    /*vertical-align: middle;*/
+    height: 16.513rem;
+    width: 100vw;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    background-color: #1F3641;
+}
+
+#modal-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30.688rem;
+    height: 11rem;
+}
+
+.winner-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+    margin-bottom: 24px;
+}
+
+#modal-content h2{
+    font-family: 'Outfit', sans-serif;
+    width: 25.063rem;
+    height: 3.125rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-left: 0.8rem;
+    color: #31c3bd;
+}
+
+#modal-content p{
+    font-family: 'Outfit', sans-serif;
+    color: #A8BFC9;
+}
+
+#dial-btns{
+    width: 14.875rem;
+    height: 3.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+#quit-btn {
+    font-family: 'Outfit', sans-serif;
+    background-color: #A8BFC9;
+    border: none;
+    border-bottom: solid 4px #6b8997;
+    border-radius: 0.625rem;
+    width: 4.75rem;
+    height: 3.25rem;
+    cursor: pointer;
+}
+
+#next-round{
+    font-family: 'Outfit', sans-serif;
+    background-color: #F2B137;
+    border: none;
+    border-bottom: solid 4px #cc8b13;
+    border-radius: 0.625rem;
+    width: 9.125rem;
+    height: 3.25rem;
+    cursor: pointer;
+}
+
+
+/*@-webkit-keyframes modal-dialog-animation {*/
+/*    from{*/
+/*        top: -100px;*/
+/*        opacity: 0;*/
+/*    }*/
+
+/*    to{*/
+/*        top: 0px;*/
+/*        opacity: 1;*/
+/*    }*/
+/*}*/
+
+/*@keyframes modal-dialog-animation {*/
+/*    from{*/
+/*        top: -100px;*/
+/*        opacity: 0;*/
+/*    }*/
+
+/*    to{*/
+/*        top: 0px;*/
+/*        opacity: 1;*/
+/*    }*/
+/*}*/
 
 /* JS TO ADD */
 

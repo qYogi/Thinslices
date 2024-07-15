@@ -90,7 +90,7 @@ buttons.forEach((button) => {
 
         if (gameOver || button.innerHTML !== "") return;
 
-        if(!gameOver){
+        if (!gameOver) {
             restartButton.disabled = false;
         }
 
@@ -159,7 +159,7 @@ function nextGame() {
     });
 }
 
-function quitGame(){
+function quitGame() {
     buttons.forEach(button => {
         button.innerHTML = '';
         button.classList.remove('winning-pattern');
@@ -183,12 +183,12 @@ quitButton.addEventListener('click', () => {
     gameContainer.style.display = 'none';
 
 })
-nextRoundButton.addEventListener('click', () =>{
+nextRoundButton.addEventListener('click', () => {
     modalID.style.display = 'none';
     nextGame()
 })
 
-quitButton.addEventListener('click', () =>{
+quitButton.addEventListener('click', () => {
     quitGame();
     modalID.style.display = 'none';
     xScore = 0;
